@@ -217,9 +217,9 @@ form {
     border-radius: 10px;
     border: 2px solid #FFFFFF;
     float: right;
-} */
+}
 
-.prenom {
+*/ .prenom {
     position: relative;
     color: white;
     float: right;
@@ -385,10 +385,9 @@ form {
         cursor: pointer;
 
         opacity: 0;
-         hide this
+        /*hide this */
         z-index: 2;
-         and place it over the hamburger 
-
+        /*and place it over the hamburger*/
         -webkit-touch-callout: none;
     }
 
