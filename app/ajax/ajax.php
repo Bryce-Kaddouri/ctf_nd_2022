@@ -8,13 +8,22 @@ switch ($_REQUEST['action']) {
             $pdo = new PDO('mysql:host=localhost;dbname=hackathon', 'root', '');
 
 
-            $sql = "SELECT * from infocompopartie where partie_id=1 order by scoreActuel desc;";
+            $sql = "SELECT compopartie.* , equipe.nom from  compopartie inner join partie on partie_id = partie.id inner join equipe on equipe_id = equipe.id where partie_id=1 order by scoreActuel desc;";
             $res = $pdo->query($sql);
-            $lignes = $res->fetchAll();
+            // $lignes = $res->fetchAll();
             $i = 1;
-            foreach ($lignes as $ligne) {
-                $body .= '<tr>';
-                $body .= '<td>' . $i . '</td>';
+            while ($ligne = $res->fetch()) {
+                if ($i == 1) {
+                    $color = '#70c17b';
+                } else if ($i == 2) {
+                    $color = '#f2e783';
+                } else if ($i == 3) {
+                    $color = '#fecb7e';
+                } else {
+                    $color = 'white';
+                }
+                $body .= '<tr style="background-color:' . $color . '">';
+                $body .= '<td >' . $i . '</td>';
                 $body .= '<td>' . $ligne['nom'] . '</td>';
                 $body .= '<td>' . $ligne['scoreActuel'] . '</td>';
                 $body .= '</tr>';

@@ -1,13 +1,14 @@
 <?php
- $action = $_REQUEST['action'];
+$action = $_REQUEST['action'];
 if (!isset($action)) {
     $action = '';
 } else {
-   
+
     echo $action;
 
     switch ($action) {
         case 'tabScore': {
+                include("vues/v_home_profilebar.php");
                 include("vues/v_tabScore.php");
 
                 break;
